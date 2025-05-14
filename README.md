@@ -146,7 +146,8 @@ This means the model explains ~12.5% of salary variance and is off by ~$25K on a
 [Watch on YouTube](https://youtu.be/mPa75j7P100)
 
 📹 **5-Minute Presentation (Assertion-Evidence)**  
-[Watch on YouTube](https://youtu.be/95L-Ps0Roj4)
+
+ [Watch on YouTube](https://youtu.be/95L-Ps0Roj4)
 ---
 
 ## 📁 Repository Structure
