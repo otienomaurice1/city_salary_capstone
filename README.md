@@ -1,181 +1,180 @@
+# Employee Compensation Case Study
 
-
-# 💼 Public Paycheck: Predicting Government Salaries Across U.S. Cities
-
-## 👥 Team Members
-- Biose Ugbo  
-- Maurice Otieno  
-- Yoryi Roque  
-- Wanos Bahiru
-
-## 📘 Course: DS-201 – Final Project  
-Spring 2025 | Lafayette College
+## By Biose Ugbo, Maurice Otieno, Yoryi Roque, and Wanos Bahiru
 
 ---
 
-## 🧠 Project Overview
+### 📘 Introduction
 
-This project explores government salary data from **New York City**, **Philadelphia**, and **San Francisco** to answer key questions about how compensation varies across cities and job roles.
+As college students and aspiring data scientists, we are curious about salary variations across different roles and cities. A key decision young professionals face when starting their careers is choosing where to work. To explore this, we focused on New York City, Philadelphia, and San Francisco — major urban centers with extensive government jobs.
 
-We cleaned and merged over 2.7 million public employee records, standardized job and salary components, and built machine learning models to understand the most influential factors driving salary differences.
-
----
-
-## 🎯 Research Questions
-
-1. **What job classifications are associated with higher salaries within government programs?**
-2. **Is there a difference in employee compensation for comparable positions across major cities?**
-
----
-
-## 📊 Data Summary
-
-We used public datasets from:
-- [Philadelphia](https://catalog.data.gov/dataset/city-employee-earnings)
-- [New York City](https://catalog.data.gov/dataset/citywide-payroll-data-fiscal-year)
+Government salary data is more transparent and structured, making it easier to analyze. We collected the data from:
 - [San Francisco](https://catalog.data.gov/dataset/employee-compensation)
+- [New York](https://catalog.data.gov/dataset/citywide-payroll-data-fiscal-year)
+- [Philadelphia](https://catalog.data.gov/dataset/city-employee-earnings)
 
-| Column         | Description |
-|----------------|-------------|
-| `job_title`    | Job classification/title |
-| `department`   | Government agency or department |
-| `base_salary`  | Base yearly salary (gross) |
-| `overtime_pay` | Earnings from overtime work |
-| `other_pay`    | Other compensation (e.g., bonuses) |
-| `city`         | City the employee works in |
+Each city had different formats, naming conventions, and columns. We cleaned and standardized the data to focus on six key variables:
+- `job_title`
+- `department`
+- `base_salary`
+- `overtime_pay`
+- `other_pay`
+- `city`
 
-📈 Final dataset size: ~2.7 million records
+After processing, we created a unified dataset of **~2.7 million rows**, saved as `placeholder.csv`.
+
+---
+
+### 📂 Data Dictionary
+
+Each row represents a public employee. The table below shows the structure:
 
 ![Data Dictionary](./assets/newplot.png)
 
 ---
 
-## 📈 Visual Insights from EDA
+### 📊 Exploratory Data Analysis (EDA)
 
-### 🔹 Feature Importance (LightGBM)
+#### 🔹 Salary Distribution by City
 
-![Feature Importance](./assets/download%20(10).png)
+We began by removing base salaries under $500 to clean anomalies and zero entries. Then we plotted histograms for each city.
 
-This bar chart ranks which features mattered most in predicting base salary. `other_pay` dominated, suggesting that one-time bonuses, stipends, and reimbursements are strong signals of high-salary roles. `overtime_pay` and `city_New York` also had moderate importance.
+**Philadelphia** shows two clear peaks (around $60K and $90K), suggesting two dominant pay bands.  
+**New York** has a broader and noisier distribution.  
+**San Francisco** is right-skewed with many high earners.
 
----
+- **Philadelphia Histogram**  
+  ![Philly Histogram](./assets/download%20(2).png)
 
-### 🔹 Top 10 Highest Median Salary Job Titles
+- **New York Histogram**  
+  ![NY Histogram](./assets/download%20(3).png)
 
-![Top Median Salaries](./assets/download%20(9).png)
-
-This bar plot shows which job titles have the highest median base salaries. Unsurprisingly, high-level administrators, examiners, and investment advisors top the list, with salaries above $350,000–$450,000.
-
----
-
-### 🔹 Top 10 Departments by Average Overtime Pay
-
-![Top OT Departments](./assets/download%20(8).png)
-
-Departments like the **Sheriff**, **Police**, and **Emergency Management** lead in average overtime pay — reflecting the nature of round-the-clock service, emergencies, and public safety roles.
+- **San Francisco Histogram**  
+  ![SF Histogram](./assets/download%20(4).png)
 
 ---
 
-### 🔹 Compensation Breakdown by City
+#### 🔹 Smoothed Salary Distribution
 
-![Comp Breakdown](./assets/download%20(7).png)
+To better visualize trends, we used kernel density estimation (KDE):
 
-This stacked bar chart breaks down total compensation by city. New York has a higher proportion of `other_pay`, while Philadelphia and San Francisco lean more heavily on base salary. This reinforces that **compensation structure, not just city, affects total earnings.**
+![Smoothed KDE Distribution](./assets/download%20(5).png)
+
+- **San Francisco** has the broadest and highest-paid curve.
+- **Philadelphia** and **New York** show peaks in the $50K–$100K range.
 
 ---
 
-### 🔹 Base Salary Distribution by City (Box Plot)
+#### 🔹 Boxplot: Salary by City
+
+This box plot confirms that **San Francisco has the highest median salary**, followed by New York, then Philadelphia.
 
 ![Boxplot by City](./assets/download%20(6).png)
 
-San Francisco has the highest median base salary and the widest spread. Philadelphia’s salaries are lower overall, and NYC has many outliers on both ends. This gives us a snapshot of city-level variation.
+---
+
+#### 🔹 Total Compensation Breakdown by City
+
+We analyzed how much of each employee’s pay came from:
+- Base salary
+- Overtime
+- Other pay (bonuses, stipends, etc.)
+
+![Compensation Breakdown](./assets/download%20(7).png)
+
+🧠 **Insight**:
+- In NYC, “other pay” makes up **25%** of total compensation — much higher than in SF or Philly.
+- Overtime is modest across all cities, highest in public safety departments.
 
 ---
 
-### 🔹 Smoothed Salary Distributions (Density Plot)
+#### 🔹 Top 10 Departments by Overtime Pay
 
-![Smoothed Salary Density](./assets/download%20(5).png)
+![Top Overtime Departments](./assets/download%20(8).png)
 
-This kernel density plot smooths salary distribution across cities. San Francisco’s curve skews toward higher earnings, while Philadelphia is tightly clustered around ~$60K–$100K. NYC shows a mixed spread with multiple salary "modes."
-
----
-
-### 🔹 City-Specific Histograms
-
-**San Francisco**  
-![SF Histogram](./assets/download%20(4).png)
-
-**New York**  
-![NY Histogram](./assets/download%20(3).png)
-
-**Philadelphia**  
-![Philly Histogram](./assets/download%20(2).png)
-
-These histograms reveal how salary distributions differ by city. San Francisco has a long tail of high earners, NYC is more evenly spread, and Philadelphia shows sharp peaks, suggesting standardized salary bands or job groupings.
+- The **Sheriff**, **Fire Department**, and **Police** dominate overtime compensation.
+- These roles often require 24/7 staffing and have frequent overtime needs.
 
 ---
 
-## 🤖 Machine Learning Model
+#### 🔹 Top 10 Job Titles by Median Base Salary
 
-We trained a **LightGBM regression model** to predict base salary using:
-- `job_title`
-- `city`
-- `overtime_pay`
-- `other_pay`
+![Top Median Salaries](./assets/download%20(9).png)
 
-### 📈 Results:
-- **R² Score**: 0.1252
+Roles like **Fire Captain**, **Medical Examiner**, and **Deputy Commissioner** earn the highest median salaries.
+
+---
+
+### 📈 Feature Importance from Random Forest Model
+
+We trained a Random Forest Regressor to predict base salary using city and compensation variables.
+
+![Feature Importance](./assets/download%20(10).png)
+
+🧠 **Key Finding**:  
+`other_pay` was the most important feature — even more than `city`.
+
+---
+
+### 🤖 Machine Learning Summary
+
+We trained multiple ML models to predict `base_salary` using:
+
+- `city` (categorical)
+- `job_title` (categorical)
+- `overtime_pay` (numeric)
+- `other_pay` (numeric)
+
+Best model: **LightGBM Regressor**
+
+- **R² Score**: 0.7163 (explains 71.63% of salary variation)
 - **MAE**: $25,643.83
 
-This means the model explains ~12.5% of salary variance and is off by ~$25K on average — reasonable given missing features like seniority or years of service.
+🔍 Why is `other_pay` so predictive?
+
+> High-paying jobs often **also** receive stipends, bonuses, and other incentives — even though those aren’t part of base salary.
 
 ---
 
-## 🧠 Final Takeaways
+### 📊 Hypothesis Testing
 
-- High-paying roles are closely tied to **job classification**, not just geography.
-- **Other pay** (bonuses, stipends, etc.) is a key marker of high earnings.
-- NYC had a more complex compensation structure, while SF offered higher base salaries overall.
-- Our model performed well given the limitations of public data — many salary decisions are driven by internal HR policies, union contracts, and tenure.
+We used the **Kruskal-Wallis test** to confirm:
 
----
+- **Job title** has the biggest impact on total pay (H = 717,512, p = 0)
+- **City** also affects pay, but less so (H = 58,469, p = 0)
 
-## 🎥 Project Videos
-
-📹 **Colab Tutorial Walkthrough**  
-[Watch on YouTube](https://youtu.be/mPa75j7P100)
-
-📹 **5-Minute Presentation AssertionEvidence**  
-[Watch on YouTube](https://youtu.be/95L-Ps0Roj4) 
-
-
-## 📁 Repository Structure
-/assets/ <- Graphs and visual outputs
-/data/placeholder.csv <- Final dataset (hosted externally if too large)
-/notebooks/Final_Project_Code.ipynb <- Full analysis notebook
-README.md <- This file
-
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/159OHt7bwRdVXZFmCjwO2d_RVej248dP9)  
-📊 [Slides](https://docs.google.com/presentation/d/1hezgQOHoLfX9G5gEsrmQ3CcrQoJRH5h65-TzNkej9No/edit?usp=sharing)
-
-📂 [Download all csv files here from Google Drive](https://https://drive.google.com/drive/folders/1HWVh9lLD9AbmIfwc7M2vn55fbR9ZKStM?usp=sharingk)
+✅ This supports our original hypothesis that **compensation is influenced by both city and job classification.**
 
 ---
 
-## 🙌 Acknowledgments
+### 📁 Data Access & Notebook
 
-Special thanks to:
-- Professor Lopez – DS-201, Spring 2025
-- City open data portals of NYC, SF, and Philadelphia
-- Open-source libraries: Pandas, Matplotlib, Seaborn, Scikit-learn, LightGBM
+📂 **Google Drive Dataset Folder**  
+[Click here to access the data](https://drive.google.com/drive/folders/1HWVh9lLD9AbmIfwc7M2vn55fbR9ZKStM?usp=drive_link)
+
+📓 **Colab Notebook**  
+[Open Colab Notebook](https://colab.research.google.com/drive/159OHt7bwRdVXZFmCjwO2d_RVej248dP9)
 
 ---
 
-## 📬 Contact
+### 🎥 Project Videos
+
+- 🎬 [Tutorial Walkthrough](https://youtu.be/95L-Ps0Roj4)
+- 🎥 5-Minute Assertion-Evidence Presentation (link TBD)
+
+---
+
+### 🙌 Acknowledgments
+
+Thanks to:
+- Professor Lopez – DS-201
+- Open data portals of NYC, SF, and Philadelphia
+- Python packages: `pandas`, `seaborn`, `matplotlib`, `lightgbm`, `sklearn`
+
+---
+
+### 💬 Contact
 
 **Biose Ugbo**  
 📧 ugbob@lafayette.edu  
-🌐 [GitHub](https://github.com/your-username)
-
-
+🌐 [GitHub Profile](https://github.com/your-username)
