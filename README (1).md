@@ -49,8 +49,6 @@ This table was generated using Plotly, which allows for a clear and aestheticall
 Nominal: job_title, department, city
 Ratio: over_time pay, base_salary, and other_pay
 
-### 1. Feature Importance Focused on City Effects
-
 ![Feature Importance](assets/download%20(1).png)
 
 This graph shows which features most influenced base salary predictions in our Random Forest model. `other_pay` came out as the most important, followed by `overtime_pay`. Interestingly, `city_New York` ranked ahead of the other cities, suggesting more variation in pay within that city.
