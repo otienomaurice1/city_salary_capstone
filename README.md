@@ -97,7 +97,7 @@ Although city names were included, the model found that **extra compensation com
 
 📹 **Colab Tutorial Walkthrough**  
 Watch how we prepared the data and trained the model  
-➡️ [YouTube Link – Tutorial]([https://your-tutorial-link.com](https://youtu.be/95L-Ps0Roj4))
+➡️ [YouTube Link – Tutorial](https://youtu.be/95L-Ps0Roj4)
 
 📹 **5-Minute Assertion-Evidence Presentation**  
 Summary of questions, insights, and takeaways  
