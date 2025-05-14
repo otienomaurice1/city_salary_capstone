@@ -114,13 +114,39 @@ Histograms confirm New York and San Francisco have more spread and upper tails i
 
 ## Machine Learning Insights
 
-### LightGBM Salary Prediction Output
+In this code, machine learning is applied to predict employee salaries based on factors such as job title, city, and additional compensation (e.g., overtime and other pay). The process involves preparing the data by cleaning and encoding categorical features using one-hot encoding and standardizing numerical values. A gradient boosting model called LightGBM is then trained on a sample of this processed data to learn patterns and relationships between the input features and the target salary. Once trained, the model can predict salaries for new or unseen employee profiles. By evaluating its performance using metrics like R² we can assess how accurately the model explains variations in salary. This approach can help uncover insights about salary trends across different cities and roles and support data-driven compensation decisions.
+
+Based on the model’s results, which achieved an R² of approximately 72%, we can draw several valuable insights. The model indicates that job title, city, and additional compensation (overtime and other pay) are meaningful predictors of base salary, but they do not capture the full picture—suggesting that other factors like experience, education, or department may play a significant role. The moderate predictive power shows that while these features help explain salary differences, there's room for improvement through enhanced data. Still, the model reveals that certain cities and job roles are consistently associated with higher or lower salaries, and that non-base compensation contributes significantly to overall pay. This type of model could be used for identifying regional pay disparities, supporting compensation planning, and flagging underpaid roles—especially when further refined with more complete data.
+
+Other Pay refers to any extra compensation a public employee receives that is not part of their base salary or overtime pay.
+
+It usually includes things like:
+
+Bonuses
+Retroactive pay adjustments
+Incentives
+Hazard pay
+Severance or payout upon retirement
+Stipends or allowances (e.g., for housing, uniforms, or transportation)
+Why Did It Show Up as the #1 Predictor in the ML Model?
+
+It actually makes a lot of sense:
+
+Even though you're trying to predict base salary, the other_pay column strongly correlates with high-paying roles and seniority.
+In many cases, only senior-level or specialty jobs receive large "other pay" packages.
+For example: A fire chief or medical examiner might get a large bonus or reimbursement on top of their base pay.
+So while other_pay doesn’t cause a higher base salary, it often appears with jobs that already pay well, which is why the model sees it as important.
+
+The machine learning model identified other_pay as the strongest predictor of base salary. This makes intuitive sense — employees in high-ranking or specialized roles often receive additional forms of compensation such as bonuses, stipends, or one-time payouts. These forms of ‘other pay’ are strongly associated with seniority, job title, and overall earnings power.”
+
+## ML Part 1
+This block of code builds a machine learning model to analyze how different cities and numeric compensation components (overtime and other pay) influence base salary. The dataset is cleaned by dropping rows with missing salary values. A random sample of 5,000 records is used to reduce memory load. The features (city, overtime pay, and other pay) are preprocessed using a column transformer that one-hot encodes the categorical city variable and scales the numeric features. A Random Forest Regressor is then trained on the data to predict base salary. After training, the model’s feature importances are extracted to determine which variables most influence salary predictions. These importances are visualized in a bar plot, helping to identify which cities or numeric variables (like overtime pay) have the greatest impact on salary outcomes. This analysis is especially useful for understanding geographic and compensation structure effects on pay.
 
 ![ML Output Summary](assets/download%20(10).png)
 
-The LightGBM model achieved an R² score of ~0.716, showing decent predictive power for salary using `job_title`, `city`, `overtime_pay`, and `other_pay`.
+## ML Part 2
+We wrote code to build a LightGBM regression model to predict log-transformed base salaries based on features like city, job title, overtime pay, and other pay. It first cleans and preprocesses the data by handling missing values and filtering out extreme values. The dataset is sampled to 5000 rows for efficiency, and categorical features are one-hot encoded while numerical features are standardized. The model is trained and evaluated using R² and MAE, resulting in an R² of 0.7163, indicating that the model explains 71.63% of the variance in salaries, and a MAE of 0.80, meaning the average prediction error is around 80% of the transformed salary value. This shows decent predictive power for salary using `job_title`, `city`, `overtime_pay`, and `other_pay`.
 
-`other_pay` dominated feature importance, reinforcing our EDA findings that high-paying jobs often include large "other" compensation — such as bonuses, stipends, or retirement payouts.
 
 ---
 
@@ -137,6 +163,6 @@ The LightGBM model achieved an R² score of ~0.716, showing decent predictive po
 
 Thanks to:
 
-- **Professor Lopez**, DS-201, Lafayette College
+- **Professor Lopez**, The greatest professor at Lafayette colleg, for instructing us through DS-201,
 - Open-source libraries: pandas, seaborn, scikit-learn, LightGBM
-- City of Philadelphia, New York, and San Francisco for transparency
+- City of Philadelphia, New York, and San Francisco for transparency and the data.
