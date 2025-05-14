@@ -1,4 +1,4 @@
-./assets/download (X).png
+
 
 # 💼 Public Paycheck: Predicting Government Salaries Across U.S. Cities
 
