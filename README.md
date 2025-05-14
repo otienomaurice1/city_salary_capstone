@@ -97,11 +97,11 @@ Although city names were included, the model found that **extra compensation com
 
 📹 **5-Minute Assertion-Evidence Presentation**  
 Summary of questions, insights, and takeaways  
-➡️ [YouTube Link – Presentation](https://youtube/95L-Ps0Roj4)
+➡️ [YouTube Link – Presentation](https://youtu.be/95L-Ps0Roj4)
 
 📹 **Colab Tutorial Walkthrough**  
 Watch how we prepared the data and trained the model  
-➡️ [YouTube Link – Presentation](https://your-presentation-link.com)
+➡️ [YouTube Link – Tutorial](https://your-presentation-link.com)
 
 ---
 
