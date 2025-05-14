@@ -113,9 +113,10 @@ Other departments that appear in the top 10, such as Emergency Management, Emerg
 ![Philly Histogram](assets/download%20(9).png)
 
 The bar chart highlights the most lucrative roles based on median base salary across the dataset. At the top of the list is the Physician Administrator, DPH, with a median base salary approaching $450,000, closely followed by the Assistant Medical Examiner (Hourly) — suggesting that high-paying roles in this dataset are predominantly in public health and medical services.
----
+
 
 ## Hypothesis Testing
+
 The Kruskal–Wallis test results reveal that both job title and city have a statistically significant impact on total pay. The test comparing total pay across job titles yields a very high H-statistic of 717,512.38 with a p-value of effectively 0, indicating that differences in total compensation between job titles are highly significant and not due to random variation. Similarly, the comparison across cities results in an H-statistic of 58,469.95 with a p-value of 0, confirming that pay varies meaningfully by location as well. While both factors influence total pay, the substantially higher H-value for job title suggests it has a stronger effect than city. These results underscore that an individual’s role and geographic location are key determinants of their overall earnings.
 
 This finding is consistent with our hypothesis stated in our introduction that employee compensation is dependent acorss job titles and cities.
