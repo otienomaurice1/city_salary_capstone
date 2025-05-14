@@ -49,8 +49,6 @@ This table was generated using Plotly, which allows for a clear and aestheticall
 Nominal: job_title, department, city
 Ratio: over_time pay, base_salary, and other_pay
 
-### 1. Feature Importance Focused on City Effects
-
 ![Feature Importance](assets/download%20(1).png)
 
 This graph shows which features most influenced base salary predictions in our Random Forest model. `other_pay` came out as the most important, followed by `overtime_pay`. Interestingly, `city_New York` ranked ahead of the other cities, suggesting more variation in pay within that city.
@@ -99,7 +97,15 @@ We also want to know which cities have higher base salaries than the others.San 
 ### 7–9. City-Specific Salary Histograms
 
 ![SF Histogram](assets/download%20(7).png)
-![NY Histogram](assets/download%20(8).png)
+
+The stacked bar plot reveals that while base salary dominates total compensation across all three cities, there are noteworthy differences in the proportions of overtime pay and other pay that suggest distinct compensation practices. Overtime pay remains relatively modest in all cities, making up roughly 5–8% of total compensation, with slightly higher shares in Philadelphia and San Francisco, likely due to staffing models in departments like public safety or healthcare. However, the standout observation is New York’s unusually high reliance on “other pay,” which constitutes nearly 25% of total compensation—substantially more than in Philadelphia or San Francisco, where it remains under 5%. This significant difference hints at New York’s use of non-standardized or discretionary compensation mechanisms, such as bonuses, stipends, or adjustments possibly used to supplement $0 base salaries (as previously observed in the data). The elevated “other pay” in New York, when combined with modest overtime usage, suggests a pay system that is more variable and potentially less transparent than in the other two cities, and it warrants further investigation into departmental or role-specific compensation structures.
+
+Double-click (or enter) to edit
+![NY Histogram](assets/download%20(8).png) 
+
+The bar plot reveals that the Sheriff's Department stands out as the top department in terms of average overtime pay, with values exceeding $32,000 per employee. This is closely followed by the Fire Department and Police, both of which are traditionally known for shift-based, around-the-clock operations that require frequent overtime coverage. These results are consistent with expectations, as public safety departments often depend on overtime to fill coverage gaps, accommodate emergencies, or manage understaffing.
+
+Other departments that appear in the top 10, such as Emergency Management, Emergency Communications, and Sanitation, also reflect roles that support critical infrastructure and may operate outside of regular business hours. These roles often experience spikes in demand (e.g., during storms, emergencies, or service disruptions), further explaining their high average overtime.
 ![Philly Histogram](assets/download%20(9).png)
 
 Histograms confirm New York and San Francisco have more spread and upper tails in compensation compared to Philadelphia.
