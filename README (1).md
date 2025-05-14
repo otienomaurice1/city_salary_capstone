@@ -18,6 +18,24 @@ Our hypothesis going into this project is that employee compensation depends on 
 - **H₀**: Average salary for all government jobs is equal  
 - **H₀**: There is no difference between the average salaries for similar government jobs across these three different cities
 
+## 📊 Data Summary
+
+We used public datasets from:
+- [Philadelphia](https://catalog.data.gov/dataset/city-employee-earnings)
+- [New York City](https://catalog.data.gov/dataset/citywide-payroll-data-fiscal-year)
+- [San Francisco](https://catalog.data.gov/dataset/employee-compensation)
+
+| Column         | Description |
+|----------------|-------------|
+| `job_title`    | Job classification/title |
+| `department`   | Government agency or department |
+| `base_salary`  | Base yearly salary (gross) |
+| `overtime_pay` | Earnings from overtime work |
+| `other_pay`    | Other compensation (e.g., bonuses) |
+| `city`         | City the employee works in |
+
+📈 Final dataset size: ~2.7 million records
+
 ---
 
 ## Data Organization
