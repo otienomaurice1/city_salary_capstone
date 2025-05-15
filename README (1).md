@@ -61,12 +61,8 @@ Finally, we saved the cleaned and combined dataset as `placeholder.csv`. This fi
 In this project, we explore a combined dataset of government employee compensation across Philadelphia, New York City, and San Francisco. The unified dataset (placeholder.csv) includes cleaned and standardized columns derived from public payroll data in each city. Understanding the structure of this dataset is essential for conducting meaningful exploratory data analysis (EDA) and building machine learning (ML) models.
 
 The following table provides a detailed data dictionary that outlines each variable, its data type, whether or not it contains missing values, and a clear description of what it represents. This step ensures transparency and improves the reproducibility of our analysis.
-
 Each row represents a public employee. The table below shows the structure:
-
 ![Data Dictionary](./assets/newplot.png)
-
-
 This table was generated using Plotly, which allows for a clear and aesthetically structured overview of our dataset’s schema.
 
 Nominal: job_title, department, city
