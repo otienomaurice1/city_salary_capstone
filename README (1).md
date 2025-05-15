@@ -62,6 +62,11 @@ In this project, we explore a combined dataset of government employee compensati
 
 The following table provides a detailed data dictionary that outlines each variable, its data type, whether or not it contains missing values, and a clear description of what it represents. This step ensures transparency and improves the reproducibility of our analysis.
 
+Each row represents a public employee. The table below shows the structure:
+
+![Data Dictionary](./assets/newplot.png)
+
+
 This table was generated using Plotly, which allows for a clear and aesthetically structured overview of our dataset’s schema.
 
 Nominal: job_title, department, city
