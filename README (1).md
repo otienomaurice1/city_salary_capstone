@@ -174,7 +174,7 @@ We wrote code to build a LightGBM regression model to predict log-transformed ba
 📊 **Project Slides**: [Google Slides](https://docs.google.com/presentation/d/1hezgQOHoLfX9G5gEsrmQ3CcrQoJRH5h65-TzNkej9No/edit?usp=sharing)
 📓 **Colab Notebook**  
 [Open Colab Notebook](https://colab.research.google.com/drive/159OHt7bwRdVXZFmCjwO2d_RVej248dP9)
----
+
 
 ## Acknowledgements
 
